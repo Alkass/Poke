@@ -46,6 +46,9 @@ bool run_test(test_node* t, void* data) {
     if (l.fatal_count || l.error_count) {
       return false;
     }
+    else {
+      return true;
+    }
   }
   return tcs == PASSED;
 }
@@ -58,6 +61,8 @@ void run_tests(test_node* l, void* data) {
     if (l->on_success) {
       run_tests(l->on_success, data);
     }
-    run_tests(l->on_failure, data);
+    else {
+      run_tests(l->on_failure, data);  
+    }
   }
 }
