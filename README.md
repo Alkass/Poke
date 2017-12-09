@@ -10,6 +10,31 @@ test_case_status my_test(logger* l, void* data) {
   l->log(l, FATAL, "This is a fatal message"); // Other options are ERROR, WARN, PASS, and INFO
   return UNKNOWN; // Other options are PASSED and FAILED
 }
+
+test_case_status on_success_test(logger* l, void* data) {
+  l->log(l, INFO, "This is an informative message");
+  return PASSED;
+}
+
+test_case_status on_failure_test(logger* l, void* data) {
+  l->log(l, PASS, "This is a success indicator");
+  return PASSED;
+}
+
+int main() {
+  test_node* tn = new_test("Test 1", "Criteria of Test 1", my_test);
+  tn->on_success = new_test("Test 2", "Criteria of Test 2", on_success_test);
+  tn->on_failure = new_test("Test 2", "Criteria of Test 2", on_failure_test);
+
+  run_tests(tn, NULL); // The second argument (NULL in this case) is a generic
+                       // heap-allocated object that gets passed down to every
+                       // test function as void*
+
+  // NOTE: If you want to only run an existing test case without running down
+  // the chain, use run_test(tn, NULL) instead
+  
+  return 0;
+}
 ```
 
 The test case's return value can be one of three valid values: `PASSED`, `FAILED`, and `UNKNOWN`.
