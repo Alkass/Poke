@@ -41,6 +41,6 @@ bool init_logger(logger* l) {
   l->warn_count  = 0;
   l->info_count  = 0;
   l->pass_count  = 0;
-  l->debug_log   = debug_log;
+  l->log         = debug_log;
   return true;
 }

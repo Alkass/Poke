@@ -8,10 +8,10 @@ test_case_status my_test(logger* l, void* data) {
   time_t t;
   srand(time(&t));
   if (rand() % 2) {
-    l->debug_log(l, PASS, "This is a success indicator");
+    l->log(l, PASS, "This is a success indicator");
   }
   else {
-    l->debug_log(l, FATAL, "This is a fatal message");
+    l->log(l, FATAL, "This is a fatal message");
   }
   sleep(1);
   return UNKNOWN;

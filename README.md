@@ -1,5 +1,5 @@
 # Poke
-Test-Driven Development done differently. Poke is a little C library that allows for the writing of a chain of test cases. Think of it as a tree structure where each node has two children: an `on_success` node and an `on_failure` node.
+Test-Driven Development done differently. Poke is a little C library that allows for the writing of a chain of test cases. Think of it as a tree structure where each node has two children: an `on_success` node and an `on_failure` node. 
 
 ## Getting Started
 ### How Does it Work?
@@ -7,8 +7,8 @@ The rules are as simple and as straightforward as they could be. Every test case
 
 ```c
 test_case_status my_test(logger* l, void* data) {
-  l->debug_log(l, FATAL, "This is a fatal message"); // Other options are ERROR, WARN, PASS, and INFO
-  return PASSED; // Other options are PASSED and FAILED
+  l->log(l, FATAL, "This is a fatal message"); // Other options are ERROR, WARN, PASS, and INFO
+  return UNKNOWN; // Other options are PASSED and FAILED
 }
 ```
 
