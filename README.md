@@ -26,13 +26,17 @@ int main() {
   tn->on_success = new_test("Test 2", "Criteria of Test 2", on_success_test);
   tn->on_failure = new_test("Test 2", "Criteria of Test 2", on_failure_test);
 
+  // NOTE: You can continue to append test cases to your chain as follows:
+  // tn->on_success->on_success = new_test("Test 3", "Criteria of Test 3", on_success_test);
+  // tn->on_success->on_failure = new_test("Test 3", "Criteria of Test 3", on_success_test);
+
   run_tests(tn, NULL); // The second argument (NULL in this case) is a generic
                        // heap-allocated object that gets passed down to every
                        // test function as void*
 
   // NOTE: If you want to only run an existing test case without running down
   // the chain, use run_test(tn, NULL) instead
-  
+
   return 0;
 }
 ```
