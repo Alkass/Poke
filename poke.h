@@ -17,8 +17,8 @@ typedef struct test_node_s {
   struct test_node_s* on_failure;
 } test_node;
 
-__attribute__((constructor)) static void init_poke();
-__attribute__((destructor)) static void kill_poke();
+__attribute__((constructor)) void init_poke();
+__attribute__((destructor))  void kill_poke();
 
 test_node* new_test(char* title, char* criterna, test_case_status (*test)(logger*, void*));
 bool run_test(test_node*, void*);

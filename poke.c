@@ -4,11 +4,11 @@
 #include <string.h>
 #include "logger.h"
 
-__attribute__((constructor)) static void init_poke() {
+__attribute__((constructor)) void init_poke() {
   printf("--- Starting Tests ---\n\n");
 }
 
-__attribute__((destructor)) static void kill_poke() {
+__attribute__((destructor)) void kill_poke() {
   printf("\n--- Testing Ended ---\n");
 }
 
