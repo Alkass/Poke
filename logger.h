@@ -19,10 +19,10 @@ typedef struct logger_s {
   uint warn_count;
   uint info_count;
   uint pass_count;
-  void (*log)(struct logger_s*, log_type, char*, ...);
+  void (*log)(struct logger_s*, log_type, const char*, ...);
 } logger;
 
-void debug_log(logger*, log_type, char*, ...);
+void debug_log(logger*, log_type, const char*, ...);
 bool init_logger(logger*);
 
 #endif

@@ -3,7 +3,7 @@
 #include <stdio.h>   // vprintf
 #include <stdarg.h>  // va_list, va_start, va_end
 
-void debug_log(logger* l, log_type lt, char* format, ...) {
+void debug_log(logger* l, log_type lt, const char* format, ...) {
   switch (lt) {
     case FATAL:
         l->fatal_count++;
