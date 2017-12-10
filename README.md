@@ -9,6 +9,8 @@ Poke is a little C library that allows for the writing of a chain of test cases.
 The rules are as simple and as straightforward as they could be. Every test case you write will have the form of a function of type `test_case_status` and will take two arguments: a `logger` object and a generic data holder (`void*`) that may contain anything. Here's what a typical test case would look like:
 
 ```c
+#include "poke.h"
+
 test_case_status my_test(logger* l, void* data) {
   l->log(l, FATAL, "This is a fatal message"); // Other options are ERROR, WARN, PASS, and INFO
   return UNKNOWN; // Other options are PASSED and FAILED
