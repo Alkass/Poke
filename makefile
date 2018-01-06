@@ -4,5 +4,4 @@ test:
 	gcc -o test.exe *.o */*.o && ./test.exe
 
 clean:
-	find . -name *.o | xargs rm -f
-	rm -f *.exe
+	rm -f *.exe *.o */*.o
