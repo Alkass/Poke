@@ -1,7 +1,7 @@
 #ifndef POKE_H
 #define POKE_H
 
-#include "logger.h"
+#include "../logger/logger.h"
 
 typedef enum test_case_status_e {
   UNKNOWN = 0,
@@ -23,4 +23,5 @@ __attribute__((destructor))  void kill_poke();
 test_node* new_test(char* title, char* criterna, test_case_status (*test)(logger*, void*));
 bool run_test(test_node*, void*);
 void run_tests(test_node*, void*);
+
 #endif

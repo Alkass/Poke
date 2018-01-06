@@ -2,7 +2,7 @@
 #include <time.h>   // time_t
 #include <stdlib.h> // rand
 #include <unistd.h> // sleep
-#include "poke.h"
+#include "poke/poke.h"
 
 test_case_status my_test(logger* l, void* data) {
   time_t t;

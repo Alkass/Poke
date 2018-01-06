@@ -1,9 +1,11 @@
-all: logger.o poke.o
-	ar rc libpoke.a logger.o poke.o
+all: objs
 
-test: all test.o
-	gcc -Wall -Werror -o test test.o -L./ -lpoke
-	./test
+objs: logger/logger.o poke/poke.o
+
+test: test.o
+	gcc -o test *.o */*.o && ./test
 
 clean:
-	rm -f *.o *.a *.so
+	find . -name *.so | xargs rm -f
+	find . -name *.a | xargs rm -f
+	find . -name *.o | xargs rm -f

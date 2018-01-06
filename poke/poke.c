@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "logger.h"
 
 __attribute__((constructor)) void init_poke() {
   printf("--- Starting Tests ---\n\n");
