@@ -1,11 +1,8 @@
-all: objs
+objs: logger/logger.o poke/poke.o test.o
 
-objs: logger/logger.o poke/poke.o
-
-test: test.o
-	gcc -o test *.o */*.o && ./test
+test:
+	gcc -o test.exe *.o */*.o && ./test.exe
 
 clean:
-	find . -name *.so | xargs rm -f
-	find . -name *.a | xargs rm -f
 	find . -name *.o | xargs rm -f
+	rm -f *.exe
